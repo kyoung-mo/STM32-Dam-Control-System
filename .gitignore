@@ -1,0 +1,19 @@
+# IDE
+.vscode/
+.settings/
+*.sublime-*
+
+# Build
+build/
+*.o
+*.elf
+*.bin
+*.hex
+
+# Debug
+Debug/
+Release/
+
+# OS
+.DS_Store
+Thumbs.db

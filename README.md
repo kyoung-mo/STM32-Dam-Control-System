@@ -186,6 +186,13 @@ This project is distributed under the MIT License.
 
 - **Youngmo Koo** - [GitHub](https://github.com/kyoung-mo)
 
+## 📝 Project Retrospective
+
+For a detailed retrospective on the project development process and troubleshooting, please visit the blog below:
+
+🔗 [STM32 Dam Control System Project Retrospective](https://velog.io/@mommers/STM32-댐-관리-시스템-프로젝트-정리-gms0esg2)
+
+
 ## 📧 Contact
 
 Project inquiries: kym11290306@gmail.com

@@ -29,6 +29,13 @@ STM32F411 기반 스마트 댐 관리 시스템
 ## 📁 프로젝트 구조
 ```
 STM32-Dam-Control-System/
+├── docs/               
+│   ├── README.md                      # ASPICE 기반 설계 문서
+│   ├── requirements.md                # 요구사항 명세서
+│   ├── architecture.md                # 아키텍처 설계서
+│   ├── test-checklist.md              # 테스트 체크리스트
+│   └── configuration-management.md    # 형상 관리 계획
+│
 ├── App/                        # 애플리케이션 레이어
 │   ├── Inc/                    # 헤더 파일
 │   │   ├── ap.h               # 메인 애플리케이션
@@ -58,6 +65,7 @@ STM32-Dam-Control-System/
 │       ├── tim.c
 │       ├── usart.c
 │       └── adc.c
+
 ├── .gitignore
 └── README.md
 ```
@@ -109,23 +117,6 @@ STM32-Dam-Control-System/
 | PB0-PB3 | KEYPAD_ROW | 키패드 행 |
 | PB12-PB15 | KEYPAD_COL | 키패드 열 |
 
-## 💻 사용 방법
-
-### 시작 화면
-시스템 전원을 켜면 LCD에 초기화 메시지가 표시됩니다.
-
-### 메뉴 네비게이션
-- `1`: 현재 수위 확인
-- `2`: 온습도 확인
-- `3`: 임계값 설정
-- `#`: 메인 메뉴로 돌아가기
-
-### UART 모니터링
-시리얼 터미널 설정:
-- 보레이트: 115200
-- 데이터 비트: 8
-- 정지 비트: 1
-- 패리티: None
 
 ## 📊 주요 기능 상세
 
@@ -143,6 +134,17 @@ STM32-Dam-Control-System/
 - 1초 간격으로 UART를 통해 데이터 전송
 - CSV 형식으로 로그 저장 가능
 - 형식: `Timestamp,WaterLevel,Temperature,Humidity`
+
+## 📚 상세 문서
+
+프로젝트의 상세 설계 문서는 `docs/` 디렉토리에서 확인할 수 있습니다:
+
+- [요구사항 명세서](docs/requirements.md) - 시스템/소프트웨어 요구사항
+- [아키텍처 설계서](docs/architecture.md) - 시스템 구조 및 모듈 설계
+- [테스트 체크리스트](docs/test-checklist.md) - 테스트 계획 및 체크리스트
+- [형상 관리 계획](docs/configuration-management.md) - Git 운영 전략
+
+> 💡 이 문서들은 ASPICE(Automotive SPICE) 프로세스를 참고하여 작성되었습니다.
 
 ## 🔍 트러블슈팅
 
@@ -188,9 +190,9 @@ STM32-Dam-Control-System/
 
 ## 📧 연락처
 
-프로젝트 관련 문의: kym1290306@gmail.com
+프로젝트 관련 문의: kym11290306@gmail.com
 
-## 🙏 감사의 글
+## 🙏 참고
 
 - STMicroelectronics의 HAL 라이브러리
 - DHT11 센서 라이브러리 참고 자료

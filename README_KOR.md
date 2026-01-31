@@ -65,7 +65,6 @@ STM32-Dam-Control-System/
 │       ├── tim.c
 │       ├── usart.c
 │       └── adc.c
-
 ├── .gitignore
 └── README.md
 ```

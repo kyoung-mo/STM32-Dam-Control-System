@@ -1,64 +1,64 @@
 # 🌊 STM32 Dam Control System
 
-Smart Dam Management System based on STM32F411
+STM32F411 기반 스마트 댐 관리 시스템
 
-## 📋 Project Overview
+## 📋 프로젝트 소개
 
-This project is an embedded system that uses the STM32F411 microcontroller to monitor and control dam water levels in real-time. It integrates water level sensors, temperature/humidity sensors, LCD displays, and keypads to effectively manage dam conditions.
+이 프로젝트는 STM32F411 마이크로컨트롤러를 사용하여 댐의 수위를 실시간으로 모니터링하고 제어하는 임베디드 시스템입니다. 수위 센서, 온습도 센서, LCD 디스플레이, 키패드를 통합하여 댐의 상태를 효과적으로 관리합니다.
 
-## ✨ Key Features
+## ✨ 주요 기능
 
-- **Real-time Water Level Monitoring**: Precise water level measurement via ADC
-- **Environmental Sensing**: Temperature and humidity measurement through DHT11 sensor
-- **Visual Feedback**: Real-time data display via I2C LCD
-- **User Interface**: Settings and control through 4x4 keypad
-- **Data Logging**: PC connectivity and data recording via UART communication
-- **Automatic Alarm**: Warning notifications when set thresholds are exceeded
+- **실시간 수위 모니터링**: ADC를 통한 정밀한 수위 측정
+- **환경 감지**: DHT11 센서를 통한 온도 및 습도 측정
+- **시각적 피드백**: I2C LCD를 통한 실시간 데이터 표시
+- **사용자 인터페이스**: 4x4 키패드를 통한 설정 및 제어
+- **데이터 로깅**: UART 통신을 통한 PC 연동 및 데이터 기록
+- **자동 경보**: 설정된 임계값 초과 시 경고 알림
 
-## 🔧 Hardware Components
+## 🔧 하드웨어 구성
 
-| Component | Model/Spec | Purpose |
-|-----------|------------|---------|
-| MCU | STM32F411CEU6 | Main Controller |
-| Temperature/Humidity Sensor | DHT11 | Environmental Monitoring |
-| Water Level Sensor | Analog Water Level Sensor | Water Height Measurement |
-| Display | I2C LCD 1602/2004 | Information Display |
-| Input Device | 4x4 Matrix Keypad | User Input |
-| Communication | UART (USB-TTL) | PC Connectivity |
+| 구성요소 | 모델/사양 | 용도 |
+|---------|----------|------|
+| MCU | STM32F411CEU6 | 메인 컨트롤러 |
+| 온습도 센서 | DHT11 | 환경 모니터링 |
+| 수위 센서 | 아날로그 수위 센서 | 물 높이 측정 |
+| 디스플레이 | I2C LCD 1602/2004 | 정보 표시 |
+| 입력 장치 | 4x4 매트릭스 키패드 | 사용자 입력 |
+| 통신 | UART (USB-TTL) | PC 연동 |
 
-## 📁 Project Structure
+## 📁 프로젝트 구조
 ```
 STM32-Dam-Control-System/
 ├── docs/               
-│   ├── README.md                      # ASPICE-based Design Documents
-│   ├── requirements.md                # Requirements Specification
-│   ├── architecture.md                # Architecture Design
-│   ├── test-checklist.md              # Test Checklist
-│   └── configuration-management.md    # Configuration Management Plan
+│   ├── README.md                      # ASPICE 기반 설계 문서
+│   ├── requirements.md                # 요구사항 명세서
+│   ├── architecture.md                # 아키텍처 설계서
+│   ├── test-checklist.md              # 테스트 체크리스트
+│   └── configuration-management.md    # 형상 관리 계획
 │
-├── App/                        # Application Layer
-│   ├── Inc/                    # Header Files
-│   │   ├── ap.h               # Main Application
-│   │   ├── ap_def.h           # Common Definitions
-│   │   ├── dht11.h            # DHT11 Driver
-│   │   ├── i2c-lcd.h          # LCD Driver
-│   │   ├── keypad.h           # Keypad Driver
-│   │   └── water_state_logger.h  # Data Logger
-│   └── Src/                    # Source Files
+├── App/                        # 애플리케이션 레이어
+│   ├── Inc/                    # 헤더 파일
+│   │   ├── ap.h               # 메인 애플리케이션
+│   │   ├── ap_def.h           # 공통 정의
+│   │   ├── dht11.h            # DHT11 드라이버
+│   │   ├── i2c-lcd.h          # LCD 드라이버
+│   │   ├── keypad.h           # 키패드 드라이버
+│   │   └── water_state_logger.h  # 데이터 로거
+│   └── Src/                    # 소스 파일
 │       ├── ap.c
 │       ├── dht11.c
 │       ├── i2c-lcd.c
 │       ├── keypad.c
 │       └── water_state_logger.c
-├── Core/                       # HAL Initialization Layer
-│   ├── Inc/                    # HAL Header Files
+├── Core/                       # HAL 초기화 레이어
+│   ├── Inc/                    # HAL 헤더 파일
 │   │   ├── main.h
 │   │   ├── gpio.h
 │   │   ├── i2c.h
 │   │   ├── tim.h
 │   │   ├── usart.h
 │   │   └── adc.h
-│   └── Src/                    # HAL Source Files
+│   └── Src/                    # HAL 소스 파일
 │       ├── main.c
 │       ├── gpio.c
 │       ├── i2c.c
@@ -69,108 +69,109 @@ STM32-Dam-Control-System/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## 🚀 시작하기
 
-### Prerequisites
+### 필요 사항
 
-- **Hardware**
-  - STM32F411 Development Board
-  - DHT11 Temperature/Humidity Sensor
-  - Water Level Sensor
+- **하드웨어**
+  - STM32F411 개발보드
+  - DHT11 온습도 센서
+  - 수위 센서
   - I2C LCD
-  - 4x4 Keypad
-  - USB-TTL Converter
+  - 4x4 키패드
+  - USB-TTL 컨버터
 
-- **Software**
+- **소프트웨어**
   - [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
-  - [ST-Link Driver](https://www.st.com/en/development-tools/stsw-link009.html)
-  - Serial Terminal (PuTTY, Tera Term, etc.)
+  - [ST-Link 드라이버](https://www.st.com/en/development-tools/stsw-link009.html)
+  - 시리얼 터미널 (PuTTY, Tera Term 등)
 
-### Installation and Build
+### 설치 및 빌드
 
-1. **Clone the Project**
+1. **프로젝트 클론**
 ```bash
-git clone https://github.com/kyoung-mo/STM32-Dam-Control-System.git
+   git clone https://github.com/kyoung-mo/STM32-Dam-Control-System.git
 ```
 
-2. **Open Project in STM32CubeIDE**
+2. **STM32CubeIDE에서 프로젝트 열기**
    - File → Open Projects from File System
-   - Select the cloned folder
+   - 클론한 폴더 선택
 
-3. **Build and Flash**
+3. **빌드 및 플래시**
    - Project → Build Project (Ctrl+B)
-   - Run → Debug (F11) or Run (Ctrl+F11)
+   - Run → Debug (F11) 또는 Run (Ctrl+F11)
 
-### Hardware Connections
+### 하드웨어 연결
 
-#### Pin Mapping
+#### 핀 배치
 
-| Pin | Function | Connection |
-|-----|----------|------------|
-| PA0 | ADC1 | Water Level Sensor Output |
+| 핀 | 기능 | 연결 |
+|----|------|------|
+| PA0 | ADC1 | 수위 센서 출력 |
 | PA9 | USART1_TX | USB-TTL RX |
 | PA10 | USART1_RX | USB-TTL TX |
 | PB6 | I2C1_SCL | LCD SCL |
 | PB7 | I2C1_SDA | LCD SDA |
-| PC0 | DHT11_DATA | DHT11 Data Pin |
-| PB0-PB3 | KEYPAD_ROW | Keypad Rows |
-| PB12-PB15 | KEYPAD_COL | Keypad Columns |
+| PC0 | DHT11_DATA | DHT11 데이터 핀 |
+| PB0-PB3 | KEYPAD_ROW | 키패드 행 |
+| PB12-PB15 | KEYPAD_COL | 키패드 열 |
 
-## 📊 Feature Details
 
-### 1. Water Level Monitoring
-- Precise measurement with 12-bit ADC resolution
-- Conversion to 0-100% range for display
-- Warning generation when threshold is exceeded
+## 📊 주요 기능 상세
 
-### 2. Temperature/Humidity Measurement
-- Periodic measurement via DHT11 sensor
-- Temperature: 0-50°C
-- Humidity: 20-90%
+### 1. 수위 모니터링
+- ADC 12bit 해상도로 정밀 측정
+- 0-100% 범위로 환산하여 표시
+- 임계값 초과 시 경고 발생
 
-### 3. Data Logging
-- Data transmission via UART at 1-second intervals
-- Logs can be saved in CSV format
-- Format: `Timestamp,WaterLevel,Temperature,Humidity`
+### 2. 온습도 측정
+- DHT11 센서를 통한 주기적 측정
+- 온도: 0-50°C
+- 습도: 20-90%
 
-## 📚 Detailed Documentation
+### 3. 데이터 로깅
+- 1초 간격으로 UART를 통해 데이터 전송
+- CSV 형식으로 로그 저장 가능
+- 형식: `Timestamp,WaterLevel,Temperature,Humidity`
 
-Detailed design documents for the project can be found in the `docs/` directory:
+## 📚 상세 문서
 
-- [Requirements Specification](docs/requirements.md) - System/Software Requirements
-- [Architecture Design](docs/architecture.md) - System Structure and Module Design
-- [Test Checklist](docs/test-checklist.md) - Test Plans and Checklists
-- [Configuration Management Plan](docs/configuration-management.md) - Git Operation Strategy
+프로젝트의 상세 설계 문서는 `docs/` 디렉토리에서 확인할 수 있습니다:
 
-> 💡 These documents were created with reference to the ASPICE (Automotive SPICE) process.
+- [요구사항 명세서](docs/requirements.md) - 시스템/소프트웨어 요구사항
+- [아키텍처 설계서](docs/architecture.md) - 시스템 구조 및 모듈 설계
+- [테스트 체크리스트](docs/test-checklist.md) - 테스트 계획 및 체크리스트
+- [형상 관리 계획](docs/configuration-management.md) - Git 운영 전략
 
-## 🔍 Troubleshooting
+> 💡 이 문서들은 ASPICE(Automotive SPICE) 프로세스를 참고하여 작성되었습니다.
 
-### LCD Not Displaying
-- Check I2C address (typically 0x27 or 0x3F)
-- Verify wiring connections
-- Adjust contrast potentiometer
+## 🔍 트러블슈팅
 
-### DHT11 Sensor Read Error
-- Check data pin connection
-- Verify pull-up resistor (10kΩ) connection
-- Check power supply (3.3V or 5V)
+### LCD가 표시되지 않는 경우
+- I2C 주소 확인 (일반적으로 0x27 또는 0x3F)
+- 배선 연결 상태 확인
+- 대비 조절 가변저항 조정
 
-### UART Communication Failed
-- Verify baud rate settings
-- Check TX/RX pin crossover connection
-- Verify USB-TTL driver installation
+### DHT11 센서 읽기 오류
+- 데이터 핀 연결 확인
+- 풀업 저항(10kΩ) 연결 확인
+- 전원 공급 확인 (3.3V 또는 5V)
 
-## 📝 Development Environment
+### UART 통신 안 됨
+- 보레이트 설정 확인
+- TX/RX 핀 교차 연결 확인
+- USB-TTL 드라이버 설치 확인
 
-- **IDE**: STM32CubeIDE 1.10.0 or higher
+## 📝 개발 환경
+
+- **IDE**: STM32CubeIDE 1.10.0 이상
 - **HAL Library**: STM32F4 HAL Driver
-- **Build Tool**: ARM GCC
-- **Debugger**: ST-Link V2
+- **빌드 도구**: ARM GCC
+- **디버거**: ST-Link V2
 
-## 🤝 Contributing
+## 🤝 기여
 
-If you'd like to contribute to the project:
+프로젝트에 기여하고 싶으시다면:
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -178,31 +179,30 @@ If you'd like to contribute to the project:
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## 📄 라이센스
 
-This project is distributed under the MIT License.
+이 프로젝트는 MIT 라이센스 하에 배포됩니다.
 
-## 👨‍💻 Developer
+## 👨‍💻 개발자
 
-- **Youngmo Koo** - [GitHub](https://github.com/kyoung-mo)
+- **구영모** - [GitHub](https://github.com/kyoung-mo)
 
-## 📝 Project Retrospective
+## 📝 프로젝트 회고
 
-For a detailed retrospective on the project development process and troubleshooting, please visit the blog below:
+프로젝트 개발 과정과 트러블슈팅에 대한 상세한 회고는 아래 블로그에서 확인할 수 있습니다:
 
-🔗 [STM32 Dam Control System Project Retrospective](https://velog.io/@mommers/STM32-댐-관리-시스템-프로젝트-정리-gms0esg2)
+🔗 [STM32 댐 관리 시스템 프로젝트 회고](https://velog.io/@mommers/STM32-댐-관리-시스템-프로젝트-정리-gms0esg2)
 
+## 📧 연락처
 
-## 📧 Contact
+프로젝트 관련 문의: kym11290306@gmail.com
 
-Project inquiries: kym11290306@gmail.com
+## 🙏 참고
 
-## 🙏 Acknowledgments
-
-- STMicroelectronics HAL Library
-- DHT11 Sensor Library Reference Materials
-- I2C LCD Driver Community
+- STMicroelectronics의 HAL 라이브러리
+- DHT11 센서 라이브러리 참고 자료
+- I2C LCD 드라이버 커뮤니티
 
 ---
 
-⭐ If this project was helpful, please give it a star!
+⭐ 이 프로젝트가 도움이 되었다면 Star를 눌러주세요!
